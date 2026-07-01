@@ -1,7 +1,2 @@
-# Keep the WebView JavascriptInterface bridge!
--keepclassmembers class * {
-    @android.webkit.JavascriptInterface <methods>;
-}
-
 # Keep all classes in your package
 -keep class com.blissless.seadex.** { *; }
