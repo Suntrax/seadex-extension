@@ -7,6 +7,7 @@ import android.os.Looper
 import android.util.Log
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import java.net.HttpURLConnection
@@ -47,7 +48,9 @@ object SeaDexScraper {
             try {
                 val webView = WebView(context)
                 webView.settings.javaScriptEnabled = true
-                webView.settings.domStorageEnabled = true
+                webView.settings.domStorageEnabled = false       // you weren't reading localStorage anyway
+                webView.settings.databaseEnabled = false
+                webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
                 webView.settings.userAgentString = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
                 webView.webViewClient = object : WebViewClient() {
