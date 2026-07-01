@@ -48,9 +48,11 @@ object SeaDexScraper {
             try {
                 val webView = WebView(context)
                 webView.settings.javaScriptEnabled = true
-                webView.settings.domStorageEnabled = false       // you weren't reading localStorage anyway
+                webView.settings.domStorageEnabled = false
                 webView.settings.databaseEnabled = false
                 webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+                webView.settings.blockNetworkImage = true
+                webView.settings.loadsImagesAutomatically = false
                 webView.settings.userAgentString = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
                 webView.webViewClient = object : WebViewClient() {
